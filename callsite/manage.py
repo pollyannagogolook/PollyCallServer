@@ -1,9 +1,10 @@
 #!/usr/bin/env python
+
 """Django's command-line utility for administrative tasks."""
 import os
 import sys
 
-
+# A script to run Django tools
 def main():
     """Run administrative tasks."""
     os.environ.setdefault("DJANGO_SETTINGS_MODULE", "callsite.settings")
