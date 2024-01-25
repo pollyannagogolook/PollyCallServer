@@ -12,10 +12,6 @@ from .serializers import NumberSerializer
 def insert_number(request):
     serializer = NumberSerializer(data=request.data)
 
-    unique_field = request.data.get("number")
-    if Number.objects.filter(number=unique_field).exists:
-        return Response({"message": "Data with this unique_field altready existed"}, status=status.HTTP_400_BAD_REQUEST)
-
     if serializer.is_valid():
         serializer.save()
         return Response(serializer.data, status=status.HTTP_201_CREATED)

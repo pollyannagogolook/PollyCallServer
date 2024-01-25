@@ -8,6 +8,7 @@ class Number(models.Model):
     """A typical class defining a model, derived from the Model class"""
 
     # Fields
+
     number = models.CharField(
         max_length=10,
         unique=True,
