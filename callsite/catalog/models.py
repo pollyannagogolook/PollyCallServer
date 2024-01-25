@@ -14,19 +14,19 @@ class Number(models.Model):
         help_text="請輸入陌生號碼"
     )
 
-    number_owner = models.CharField(
+    owner = models.CharField(
         max_length=30,
         help_text="是誰來電？"
     )
 
-    should_reject = models.BooleanField(
+    is_scam = models.BooleanField(
         help_text="是否該拒接"
     )
 
     # Metadata: default ordering when returns data
 
-    class Metadata:
-        ordering = ["number_field", "number_owner"]
+    class Meta:
+        ordering = ["number", "owner", "is_scam"]
 
     # Methods
         # get_absolute_info: return url from a personal model's record
