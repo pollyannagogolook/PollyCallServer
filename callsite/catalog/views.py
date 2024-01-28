@@ -24,3 +24,15 @@ def get_all_numbers(request):
     models = Number.objects.all()
     serializer = NumberSerializer(models, many=True)
     return Response(serializer.data)
+
+# search speicfic number information
+
+
+@api_view(['GET'])
+def get_specific_number(request, number):
+    try:
+        number_instance = Number.objects.get(number=number)
+        serializer = NumberSerializer(number_instance)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+    except Number.DoesNotExist:
+        return Response({}, status=status.HTTP_200_OK)
